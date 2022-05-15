@@ -1,12 +1,13 @@
 import * as React from "react";
-import { Table, Row, Col, Tooltip, Text, Container } from "@nextui-org/react";
+import { Table, Row, Col, Text } from "@nextui-org/react";
 import { IconButton } from "../../Icons/IconButton";
 import { EditIcon } from "../../Icons/EditIcon";
 import { DeleteIcon } from "../../Icons/DeleteIcon";
 import ModalForEditUser from "../Modal/ModalForEditUser";
 
-export default function MainTable({ setVisibleSwaper }) {
+export default function MainTable() {
   const [modalStatus, setModalStatus] = React.useState(false);
+  const [userDatasNumber, setUserDatasNumber] = React.useState(0);
 
   const columns = [
     { name: "NAME", uid: "name" },
@@ -18,7 +19,7 @@ export default function MainTable({ setVisibleSwaper }) {
   ];
   const users = [
     {
-      id: 1,
+      id: 0,
       name: "Tony Reichert",
       email: "tony.reichert@example.com",
       phone: "09306817596",
@@ -26,6 +27,7 @@ export default function MainTable({ setVisibleSwaper }) {
       age: "29",
     },
   ];
+
   const renderCell = (user, columnKey) => {
     const cellValue = user[columnKey];
     switch (columnKey) {
@@ -48,7 +50,14 @@ export default function MainTable({ setVisibleSwaper }) {
                 d: "flex",
                 justifyContent: "flex-end",
               }}>
-              <IconButton onClick={() => setModalStatus(!modalStatus)}>
+              <IconButton
+                onClick={() => {
+                  setUserDatasNumber(user.id);
+                  setModalStatus(true);
+                  setTimeout(() => {
+                    setModalStatus(false);
+                  }, 100);
+                }}>
                 <EditIcon size={20} fill='#17C964' />
               </IconButton>
             </Col>
@@ -70,7 +79,11 @@ export default function MainTable({ setVisibleSwaper }) {
 
   return (
     <>
-      <ModalForEditUser modalstatus={modalStatus} />
+      <ModalForEditUser
+        modalstatus={modalStatus}
+        userDatasForEdit={users}
+        userDatasNumber={userDatasNumber}
+      />
 
       <Table
         shadow
