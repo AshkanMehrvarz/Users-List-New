@@ -7,7 +7,7 @@ const myDarkTheme = createTheme({
   type: "dark",
   theme: {
     colors: {
-      background: "#00254D",
+      background: "#202020",
       text: "#EDF5FF",
     },
     fonts: {
