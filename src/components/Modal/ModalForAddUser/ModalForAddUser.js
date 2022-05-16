@@ -7,8 +7,14 @@ import ModalForAddUserHeader from "./ModalForAddUserHeader";
 export default function ModalForAddUser({
   modalForAddUserStatusSwaper,
   setModalForAddUserStatusSwaper,
+  usersSwaper,
+  setUsersSwaper,
 }) {
-  const closeModalHandler = () => setModalForAddUserStatusSwaper(false);
+  const closeModalHandler = () => {
+    setModalForAddUserStatusSwaper(false);
+    setNewUser({});
+  };
+  const [newUser, setNewUser] = React.useState({});
   return (
     <>
       <Modal
@@ -21,11 +27,18 @@ export default function ModalForAddUser({
           <ModalForAddUserHeader />
         </Modal.Header>
         <Modal.Body>
-          <ModalForAddUserBody />
+          <ModalForAddUserBody
+            newUserSwaper={newUser}
+            setNewUserSwaper={setNewUser}
+          />
         </Modal.Body>
         <Modal.Footer>
           <ModalForAddUserFooter
             setModalForAddUserStatusSwaper2x={setModalForAddUserStatusSwaper}
+            newUserSwaper={newUser}
+            setNewUserSwaper={setNewUser}
+            usersSwaper2x={usersSwaper}
+            setUsersSwaper2x={setUsersSwaper}
           />
         </Modal.Footer>
       </Modal>

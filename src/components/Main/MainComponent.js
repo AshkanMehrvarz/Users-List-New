@@ -12,6 +12,10 @@ export default function MainComponent() {
   const [ModalForEditUserStatus, setModalForEditUserStatus] =
     React.useState(false);
 
+  const [users, setUsers] = React.useState([]);
+
+  console.log(users);
+
   return (
     <Container>
       {/* Add New User Button */}
@@ -23,6 +27,8 @@ export default function MainComponent() {
       <ModalForAddUser
         modalForAddUserStatusSwaper={modalForAddUserStatus}
         setModalForAddUserStatusSwaper={setModalForAddUserStatus}
+        usersSwaper={users}
+        setUsersSwaper={setUsers}
       />
 
       {/* Modal For Edit User */}
