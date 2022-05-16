@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Table, Row, Col, Text, Popover } from "@nextui-org/react";
-import { IconButton } from "../../Icons/IconButton";
-import { EditIcon } from "../../Icons/EditIcon";
-import { DeleteIcon } from "../../Icons/DeleteIcon";
+import { IconButton } from "../Icons/IconButton";
+import { EditIcon } from "../Icons/EditIcon";
+import { DeleteIcon } from "../Icons/DeleteIcon";
 import ModalForEditUser from "../Modal/ModalForEditUser";
-import { DeleteUser } from "../../popover/DeleteUser";
+import { DeleteUser } from "../popover/DeleteUser";
 
 export default function MainTable() {
   const [modalStatus, setModalStatus] = React.useState(false);

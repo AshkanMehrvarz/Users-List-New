@@ -13,6 +13,9 @@ export default function ModalForEditUser({
     [modalstatus]
   );
 
+  const datas = userDatasForEdit;
+  const index = userDatasNumber;
+
   const closeModalHandler = () => setVisible(false);
 
   return (
@@ -33,25 +36,25 @@ export default function ModalForEditUser({
             bordered
             color='primary'
             label='Name'
-            initialValue={userDatasForEdit[userDatasNumber].name}
+            // initialValue={datas[index].name}
           />
           <Input
             bordered
             color='primary'
             label='Email'
-            initialValue={userDatasForEdit[userDatasNumber].email}
+            // initialValue={userDatasForEdit[userDatasNumber].email}
           />
           <Input
             bordered
             color='primary'
             label='Phone'
-            initialValue={userDatasForEdit[userDatasNumber].phone}
+            // initialValue={userDatasForEdit[userDatasNumber].phone}
           />
           <Input
             bordered
             color='primary'
             label='age'
-            initialValue={userDatasForEdit[userDatasNumber].age}
+            // initialValue={userDatasForEdit[userDatasNumber].age}
           />
         </Modal.Body>
         <Modal.Footer>

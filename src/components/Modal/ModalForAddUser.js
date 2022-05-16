@@ -9,10 +9,34 @@ import {
   Spacer,
 } from "@nextui-org/react";
 
-export default function ModalForAddUser() {
+export default function ModalForAddUser({
+  setUserDatasSwaper,
+  userDatasSwaper,
+}) {
   const [visible, setVisible] = React.useState(false);
+  const [newUser, setNewUser] = React.useState({});
+
+  const inputValuesHandler = (e) => {
+    const key = e.target.ariaLabel;
+    const value = e.target.value;
+    const isAdmin = e.target.checked ? "Admin" : "Normal User";
+    setNewUser({
+      ...newUser,
+      [key]: value,
+      role: isAdmin,
+    });
+  };
+
+  const addNewUserHandler = () => {
+    setUserDatasSwaper([...userDatasSwaper, newUser]);
+    closeModalHandler();
+  };
+
   const openModalHandler = () => setVisible(true);
-  const closeModalHandler = () => setVisible(false);
+  const closeModalHandler = () => {
+    setVisible(false);
+    setNewUser({});
+  };
 
   return (
     <>
@@ -33,21 +57,45 @@ export default function ModalForAddUser() {
               </Text>
             </Modal.Header>
             <Modal.Body>
-              <Input bordered color='primary' Placeholder='Name' />
-              <Input bordered color='primary' Placeholder='Email' />
-              <Input bordered color='primary' Placeholder='Phone' />
-              <Input bordered color='primary' Placeholder='age' />
+              <Input
+                aria-label='name'
+                bordered
+                color='primary'
+                placeholder='Name'
+                onChange={inputValuesHandler}
+              />
+              <Input
+                aria-label='email'
+                bordered
+                color='primary'
+                placeholder='Email'
+                onChange={inputValuesHandler}
+              />
+              <Input
+                aria-label='phone'
+                bordered
+                color='primary'
+                placeholder='Phone'
+                onChange={inputValuesHandler}
+              />
+              <Input
+                aria-label='age'
+                bordered
+                color='primary'
+                placeholder='age'
+                onChange={inputValuesHandler}
+              />
               <Row justify='flex-end' align='center'>
                 <Text weight='medium'>Admin</Text>
                 <Spacer x={0.5} />
-                <Switch />
+                <Switch onChange={inputValuesHandler} />
               </Row>
             </Modal.Body>
             <Modal.Footer>
-              <Button auto bordered color='error' onClick={closeModalHandler}>
+              <Button auto bordered color='error' onPress={closeModalHandler}>
                 CANCEL
               </Button>
-              <Button auto onClick={closeModalHandler}>
+              <Button auto onPress={addNewUserHandler}>
                 ADD USER
               </Button>
             </Modal.Footer>
