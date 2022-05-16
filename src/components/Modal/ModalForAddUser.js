@@ -1,47 +1,19 @@
 import * as React from "react";
-import {
-  Button,
-  Row,
-  Modal,
-  Text,
-  Input,
-  Switch,
-  Spacer,
-} from "@nextui-org/react";
+import { Button, Row, Modal, Text } from "@nextui-org/react";
+import ModalForAddUserBody from "./ModalForAddUserBody";
+import ModalForAddUserFooter from "./ModalForAddUserFooter";
+import ModalForAddUserHeader from "./ModalForAddUserHeader";
 
-export default function ModalForAddUser({
-  setUserDatasSwaper,
-  userDatasSwaper,
-}) {
+export default function ModalForAddUser() {
   const [visible, setVisible] = React.useState(false);
-  const [newUser, setNewUser] = React.useState({});
-
-  const inputValuesHandler = (e) => {
-    const key = e.target.ariaLabel;
-    const value = e.target.value;
-    const isAdmin = e.target.checked ? "Admin" : "Normal User";
-    setNewUser({
-      ...newUser,
-      [key]: value,
-      role: isAdmin,
-    });
-  };
-
-  const addNewUserHandler = () => {
-    setUserDatasSwaper([...userDatasSwaper, newUser]);
-    closeModalHandler();
-  };
 
   const openModalHandler = () => setVisible(true);
-  const closeModalHandler = () => {
-    setVisible(false);
-    setNewUser({});
-  };
+  const closeModalHandler = () => setVisible(false);
 
   return (
     <>
       <Row justify='flex-end' css={{ mt: 50, mb: 25 }}>
-        <Button ghost onClick={openModalHandler}>
+        <Button ghost onPress={openModalHandler}>
           Add New User
         </Button>
         <div>
@@ -52,52 +24,13 @@ export default function ModalForAddUser({
             onClose={closeModalHandler}
             open={visible}>
             <Modal.Header>
-              <Text id='modal-title' size={22} weight='bold'>
-                Add New User
-              </Text>
+              <ModalForAddUserHeader />
             </Modal.Header>
             <Modal.Body>
-              <Input
-                aria-label='name'
-                bordered
-                color='primary'
-                placeholder='Name'
-                onChange={inputValuesHandler}
-              />
-              <Input
-                aria-label='email'
-                bordered
-                color='primary'
-                placeholder='Email'
-                onChange={inputValuesHandler}
-              />
-              <Input
-                aria-label='phone'
-                bordered
-                color='primary'
-                placeholder='Phone'
-                onChange={inputValuesHandler}
-              />
-              <Input
-                aria-label='age'
-                bordered
-                color='primary'
-                placeholder='age'
-                onChange={inputValuesHandler}
-              />
-              <Row justify='flex-end' align='center'>
-                <Text weight='medium'>Admin</Text>
-                <Spacer x={0.5} />
-                <Switch onChange={inputValuesHandler} />
-              </Row>
+              <ModalForAddUserBody />
             </Modal.Body>
             <Modal.Footer>
-              <Button auto bordered color='error' onPress={closeModalHandler}>
-                CANCEL
-              </Button>
-              <Button auto onPress={addNewUserHandler}>
-                ADD USER
-              </Button>
+              <ModalForAddUserFooter />
             </Modal.Footer>
           </Modal>
         </div>
