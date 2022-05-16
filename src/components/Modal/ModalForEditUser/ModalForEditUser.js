@@ -24,7 +24,9 @@ export default function ModalForEditUser({
         <ModalForEditUserBody />
       </Modal.Body>
       <Modal.Footer>
-        <ModalForEditUserFooter />
+        <ModalForEditUserFooter
+          setModalForEditUserStatusSwaper2x={setModalForEditUserStatusSwaper}
+        />
       </Modal.Footer>
     </Modal>
   );

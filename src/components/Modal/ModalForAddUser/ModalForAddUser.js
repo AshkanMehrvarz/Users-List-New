@@ -25,7 +25,7 @@ export default function ModalForAddUser({
         </Modal.Body>
         <Modal.Footer>
           <ModalForAddUserFooter
-            modalForAddUserStatusSwaper2x={setModalForAddUserStatusSwaper}
+            setModalForAddUserStatusSwaper2x={setModalForAddUserStatusSwaper}
           />
         </Modal.Footer>
       </Modal>

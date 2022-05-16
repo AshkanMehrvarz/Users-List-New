@@ -2,14 +2,10 @@ import * as React from "react";
 import { Table, Row, Col, Text, Popover } from "@nextui-org/react";
 import { IconButton } from "../Icons/IconButton";
 import { EditIcon } from "../Icons/EditIcon";
-import { DeleteIcon } from "../Icons/DeleteIcon";
-import ModalForEditUser from "../Modal/ModalForEditUser/ModalForEditUser";
-import { DeleteUser } from "../popover/DeleteUser";
+
+import CustomPopOver from "../popover/CustomPopOver";
 
 export default function MainTable({ setModalForEditUserStatusSwaper }) {
-  // const [modalStatus, setModalStatus] = React.useState(false);
-  // const [userDatasNumber, setUserDatasNumber] = React.useState(0);
-
   const openModalHandler = () => setModalForEditUserStatusSwaper(true);
 
   const columns = [
@@ -53,16 +49,7 @@ export default function MainTable({ setModalForEditUserStatusSwaper }) {
                 d: "flex",
                 justifyContent: "flex-end",
               }}>
-              <IconButton
-                // onClick={() => {
-                //   setUserDatasNumber(user.id);
-                //   setModalStatus(true);
-                //   setTimeout(() => {
-                //     setModalStatus(false);
-                //   }, 100);
-                // }}
-
-                onClick={openModalHandler}>
+              <IconButton onClick={openModalHandler}>
                 <EditIcon size={20} fill='#17C964' />
               </IconButton>
             </Col>
@@ -71,16 +58,7 @@ export default function MainTable({ setModalForEditUserStatusSwaper }) {
                 d: "flex",
                 justifyContent: "center",
               }}>
-              <Popover>
-                <Popover.Trigger>
-                  <IconButton>
-                    <DeleteIcon size={20} fill='#FF0080' />
-                  </IconButton>
-                </Popover.Trigger>
-                <Popover.Content>
-                  <DeleteUser />
-                </Popover.Content>
-              </Popover>
+              <CustomPopOver />
             </Col>
           </Row>
         );
@@ -91,12 +69,6 @@ export default function MainTable({ setModalForEditUserStatusSwaper }) {
 
   return (
     <>
-      {/* <ModalForEditUser
-        modalstatus={modalStatus}
-        userDatasForEdit={users}
-        userDatasNumber={userDatasNumber}
-      /> */}
-
       <Table
         shadow
         bordered

@@ -1,8 +1,8 @@
 import { Button } from "@nextui-org/react";
 export default function ModalForAddUserFooter({
-  modalForAddUserStatusSwaper2x,
+  setModalForAddUserStatusSwaper2x,
 }) {
-  const modalCloseHandler = () => modalForAddUserStatusSwaper2x(false);
+  const modalCloseHandler = () => setModalForAddUserStatusSwaper2x(false);
   return (
     <>
       <Button auto bordered color='error' onPress={modalCloseHandler}>

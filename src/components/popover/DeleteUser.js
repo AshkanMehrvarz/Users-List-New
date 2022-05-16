@@ -1,7 +1,8 @@
 import React from "react";
 import { Text, Button, Grid, Row } from "@nextui-org/react";
 
-export const DeleteUser = () => {
+export const DeleteUser = ({ setPopoverStatusSwaper }) => {
+  const cancelButtonHandler = () => setPopoverStatusSwaper(false);
   return (
     <Grid.Container
       css={{ borderRadius: "14px", padding: "0.75rem", maxWidth: "330px" }}>
@@ -16,7 +17,7 @@ export const DeleteUser = () => {
       </Row>
       <Grid.Container justify='space-between' alignContent='center'>
         <Grid>
-          <Button size='sm' light>
+          <Button size='sm' light onPress={cancelButtonHandler}>
             Cancel
           </Button>
         </Grid>
