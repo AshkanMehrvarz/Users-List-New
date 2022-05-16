@@ -1,9 +1,10 @@
 import * as React from "react";
-import { Table, Row, Col, Text } from "@nextui-org/react";
+import { Table, Row, Col, Text, Popover } from "@nextui-org/react";
 import { IconButton } from "../../Icons/IconButton";
 import { EditIcon } from "../../Icons/EditIcon";
 import { DeleteIcon } from "../../Icons/DeleteIcon";
 import ModalForEditUser from "../Modal/ModalForEditUser";
+import { DeleteUser } from "../../popover/DeleteUser";
 
 export default function MainTable() {
   const [modalStatus, setModalStatus] = React.useState(false);
@@ -66,9 +67,16 @@ export default function MainTable() {
                 d: "flex",
                 justifyContent: "center",
               }}>
-              <IconButton onClick={() => console.log("Delete user", user.id)}>
-                <DeleteIcon size={20} fill='#FF0080' />
-              </IconButton>
+              <Popover>
+                <Popover.Trigger>
+                  <IconButton>
+                    <DeleteIcon size={20} fill='#FF0080' />
+                  </IconButton>
+                </Popover.Trigger>
+                <Popover.Content>
+                  <DeleteUser />
+                </Popover.Content>
+              </Popover>
             </Col>
           </Row>
         );

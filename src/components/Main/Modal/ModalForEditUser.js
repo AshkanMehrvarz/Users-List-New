@@ -44,13 +44,11 @@ export default function ModalForEditUser({
           <Input
             bordered
             color='primary'
-            size='lg'
             label='Phone'
             initialValue={userDatasForEdit[userDatasNumber].phone}
           />
           <Input
             bordered
-            size='lg'
             color='primary'
             label='age'
             initialValue={userDatasForEdit[userDatasNumber].age}
