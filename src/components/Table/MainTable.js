@@ -3,7 +3,7 @@ import { Table, Row, Col, Text, Popover } from "@nextui-org/react";
 import { IconButton } from "../Icons/IconButton";
 import { EditIcon } from "../Icons/EditIcon";
 import { DeleteIcon } from "../Icons/DeleteIcon";
-import ModalForEditUser from "../Modal/ModalForEditUser";
+import ModalForEditUser from "../Modal/ModalForEditUser/ModalForEditUser";
 import { DeleteUser } from "../popover/DeleteUser";
 
 export default function MainTable({ setModalForEditUserStatusSwaper }) {

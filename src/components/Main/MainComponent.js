@@ -2,8 +2,8 @@ import * as React from "react";
 import { Container } from "@nextui-org/react";
 import MainTable from "../Table/MainTable";
 import AddNewUserButton from "./AddNewUserButton";
-import ModalForAddUser from "../Modal/ModalForAddUser";
-import ModalForEditUser from "../Modal/ModalForEditUser";
+import ModalForAddUser from "../Modal/ModalForAddUser/ModalForAddUser";
+import ModalForEditUser from "../Modal/ModalForEditUser/ModalForEditUser";
 
 export default function MainComponent() {
   const [modalForAddUserStatus, setModalForAddUserStatus] =

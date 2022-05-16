@@ -1,5 +1,5 @@
 import { Button, Row } from "@nextui-org/react";
-import ModalForAddUser from "../Modal/ModalForAddUser";
+import ModalForAddUser from "../Modal/ModalForAddUser/ModalForAddUser";
 
 export default function AddNewUserButton({ setModalForAddUserStatusSwaper }) {
   const modalOpenHandler = () => {
