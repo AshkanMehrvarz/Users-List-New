@@ -6,9 +6,11 @@ import { DeleteIcon } from "../Icons/DeleteIcon";
 import ModalForEditUser from "../Modal/ModalForEditUser";
 import { DeleteUser } from "../popover/DeleteUser";
 
-export default function MainTable() {
-  const [modalStatus, setModalStatus] = React.useState(false);
-  const [userDatasNumber, setUserDatasNumber] = React.useState(0);
+export default function MainTable({ setModalForEditUserStatusSwaper }) {
+  // const [modalStatus, setModalStatus] = React.useState(false);
+  // const [userDatasNumber, setUserDatasNumber] = React.useState(0);
+
+  const openModalHandler = () => setModalForEditUserStatusSwaper(true);
 
   const columns = [
     { name: "NAME", uid: "name" },
@@ -52,13 +54,15 @@ export default function MainTable() {
                 justifyContent: "flex-end",
               }}>
               <IconButton
-                onClick={() => {
-                  setUserDatasNumber(user.id);
-                  setModalStatus(true);
-                  setTimeout(() => {
-                    setModalStatus(false);
-                  }, 100);
-                }}>
+                // onClick={() => {
+                //   setUserDatasNumber(user.id);
+                //   setModalStatus(true);
+                //   setTimeout(() => {
+                //     setModalStatus(false);
+                //   }, 100);
+                // }}
+
+                onClick={openModalHandler}>
                 <EditIcon size={20} fill='#17C964' />
               </IconButton>
             </Col>
@@ -87,11 +91,11 @@ export default function MainTable() {
 
   return (
     <>
-      <ModalForEditUser
+      {/* <ModalForEditUser
         modalstatus={modalStatus}
         userDatasForEdit={users}
         userDatasNumber={userDatasNumber}
-      />
+      /> */}
 
       <Table
         shadow
