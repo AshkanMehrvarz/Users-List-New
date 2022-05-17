@@ -13,6 +13,8 @@ export default function ModalForEditUser({
 }) {
   const closeModalHandler = () => setModalForEditUserStatusSwaper(false);
 
+  let temp = [...usersSwaper];
+
   return (
     <Modal
       closeButton
@@ -26,13 +28,15 @@ export default function ModalForEditUser({
       <Modal.Body>
         <ModalForEditUserBody
           usersSwaper2x={usersSwaper}
-          setUsersSwaper2x={setUsersSwaper}
           idSwaper2x={idSwaper}
+          tempSwaper={temp}
         />
       </Modal.Body>
       <Modal.Footer>
         <ModalForEditUserFooter
           setModalForEditUserStatusSwaper2x={setModalForEditUserStatusSwaper}
+          tempSwaper={temp}
+          setUsersSwaper2x={setUsersSwaper}
         />
       </Modal.Footer>
     </Modal>
