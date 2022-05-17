@@ -30,6 +30,7 @@ export default function ModalForAddUserBody({
   return (
     <>
       <Input
+        type='text'
         placeholder='Name'
         aria-label='name'
         color='primary'
@@ -37,6 +38,7 @@ export default function ModalForAddUserBody({
         onChange={inputValuesHandler}
       />
       <Input
+        type='email'
         placeholder='Email'
         aria-label='email'
         color='primary'
@@ -44,6 +46,7 @@ export default function ModalForAddUserBody({
         onChange={inputValuesHandler}
       />
       <Input
+        type='tel'
         placeholder='Phone'
         aria-label='phone'
         color='primary'
@@ -51,6 +54,7 @@ export default function ModalForAddUserBody({
         onChange={inputValuesHandler}
       />
       <Input
+        type='number'
         placeholder='Age'
         aria-label='age'
         color='primary'
