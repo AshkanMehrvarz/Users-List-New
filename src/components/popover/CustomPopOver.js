@@ -4,7 +4,11 @@ import { DeleteUser } from "./DeleteUser";
 import { DeleteIcon } from "../Icons/DeleteIcon";
 import { IconButton } from "../Icons/IconButton";
 
-export default function CustomPopOver() {
+export default function CustomPopOver({
+    usersSwaper,
+    setUsersSwaper,
+    user
+                                      }) {
   const [popoverStatus, setPopoverStatus] = React.useState(false);
 
   const popoverOpenHandler = () => setPopoverStatus(true);
@@ -17,7 +21,12 @@ export default function CustomPopOver() {
           </IconButton>
         </Popover.Trigger>
         <Popover.Content>
-          <DeleteUser setPopoverStatusSwaper={setPopoverStatus} />
+          <DeleteUser
+            setPopoverStatusSwaper={setPopoverStatus}
+            usersSwaper={usersSwaper}
+            setUsersSwaper={setUsersSwaper}
+            user={user}
+          />
         </Popover.Content>
       </Popover>
     </>
