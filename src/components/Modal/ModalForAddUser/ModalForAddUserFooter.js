@@ -15,7 +15,10 @@ export default function ModalForAddUserFooter({
 
   const addNewUserHndler = () => {
     if (Object.keys(newUserSwaper).length > 1) {
-      setUsersSwaper2x([...usersSwaper2x, newUserSwaper]);
+      setUsersSwaper2x([
+        ...usersSwaper2x,
+        { ...newUserSwaper, id: usersSwaper2x.length },
+      ]);
       modalCloseHandler();
     }
     modalCloseHandler();

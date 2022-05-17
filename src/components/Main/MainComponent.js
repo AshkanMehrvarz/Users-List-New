@@ -13,7 +13,6 @@ export default function MainComponent() {
     React.useState(false);
 
   const [users, setUsers] = React.useState([]);
-  console.log(users);
 
   return (
     <Container>

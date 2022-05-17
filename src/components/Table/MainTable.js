@@ -1,18 +1,14 @@
 import * as React from "react";
-import { Table, Row, Col, Text, Popover } from "@nextui-org/react";
+import { Table, Row, Col, Text } from "@nextui-org/react";
 import { IconButton } from "../Icons/IconButton";
 import { EditIcon } from "../Icons/EditIcon";
-
 import CustomPopOver from "../popover/CustomPopOver";
 
-export default function MainTable({ setModalForEditUserStatusSwaper }) {
+export default function MainTable({
+  setModalForEditUserStatusSwaper,
+  usersSwaper,
+}) {
   const openModalHandler = () => setModalForEditUserStatusSwaper(true);
-
-  const users = [
-    {
-      id: 0,
-    },
-  ];
 
   const columns = [
     { name: "NAME", uid: "name" },
@@ -42,28 +38,26 @@ export default function MainTable({ setModalForEditUserStatusSwaper }) {
         return <Text>{cellValue}</Text>;
 
       case "actions":
-        if (users.id >= 0) {
-          return (
-            <Row>
-              <Col
-                css={{
-                  d: "flex",
-                  justifyContent: "flex-end",
-                }}>
-                <IconButton onClick={openModalHandler}>
-                  <EditIcon size={20} fill='#17C964' />
-                </IconButton>
-              </Col>
-              <Col
-                css={{
-                  d: "flex",
-                  justifyContent: "center",
-                }}>
-                <CustomPopOver />
-              </Col>
-            </Row>
-          );
-        }
+        return (
+          <Row>
+            <Col
+              css={{
+                d: "flex",
+                justifyContent: "flex-end",
+              }}>
+              <IconButton onClick={openModalHandler}>
+                <EditIcon size={20} fill='#17C964' />
+              </IconButton>
+            </Col>
+            <Col
+              css={{
+                d: "flex",
+                justifyContent: "center",
+              }}>
+              <CustomPopOver />
+            </Col>
+          </Row>
+        );
       default:
         return cellValue;
     }
@@ -89,12 +83,25 @@ export default function MainTable({ setModalForEditUserStatusSwaper }) {
             </Table.Column>
           )}
         </Table.Header>
-        <Table.Body items={users}>
-          {(item) => (
-            <Table.Row>
-              {(columnKey) => (
-                <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
-              )}
+        <Table.Body items={usersSwaper}>
+          {usersSwaper.length > 0 ? (
+            (item) => {
+              return (
+                <Table.Row>
+                  {(columnKey) => (
+                    <Table.Cell>{renderCell(item, columnKey)}</Table.Cell>
+                  )}
+                </Table.Row>
+              );
+            }
+          ) : (
+            <Table.Row key='999999999'>
+              <Table.Cell>---</Table.Cell>
+              <Table.Cell>---</Table.Cell>
+              <Table.Cell>---</Table.Cell>
+              <Table.Cell>---</Table.Cell>
+              <Table.Cell>---</Table.Cell>
+              <Table.Cell>---</Table.Cell>
             </Table.Row>
           )}
         </Table.Body>
