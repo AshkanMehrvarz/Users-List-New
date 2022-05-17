@@ -13,7 +13,6 @@ export default function MainComponent() {
     React.useState(false);
 
   const [users, setUsers] = React.useState([]);
-
   console.log(users);
 
   return (
@@ -38,7 +37,10 @@ export default function MainComponent() {
       />
 
       {/* Main Table */}
-      <MainTable setModalForEditUserStatusSwaper={setModalForEditUserStatus} />
+      <MainTable
+        setModalForEditUserStatusSwaper={setModalForEditUserStatus}
+        usersSwaper={users}
+      />
     </Container>
   );
 }

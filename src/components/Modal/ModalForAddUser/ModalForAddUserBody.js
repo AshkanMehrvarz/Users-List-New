@@ -1,5 +1,5 @@
+import * as React from "react";
 import { Row, Text, Spacer, Switch, Input } from "@nextui-org/react";
-import React from "react";
 
 export default function ModalForAddUserBody({
   newUserSwaper,
@@ -7,9 +7,14 @@ export default function ModalForAddUserBody({
 }) {
   const [isAdmin, setIsAdmin] = React.useState(false);
   const isAdminCheckedDetector = (e) => {
-    e.target.checked ? setIsAdmin(true) : setIsAdmin(false);
-    newUserSwaper.role = isAdmin ? "Normal User" : "Admin";
+    setIsAdmin(e.target.checked);
   };
+  React.useEffect(() => {
+    setNewUserSwaper({
+      ...newUserSwaper,
+      role: isAdmin ? "Admin" : "Normal User",
+    });
+  }, [isAdmin]);
 
   const inputValuesHandler = (e) => {
     const key = e.target.ariaLabel;

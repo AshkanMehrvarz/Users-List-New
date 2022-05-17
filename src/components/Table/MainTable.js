@@ -8,6 +8,12 @@ import CustomPopOver from "../popover/CustomPopOver";
 export default function MainTable({ setModalForEditUserStatusSwaper }) {
   const openModalHandler = () => setModalForEditUserStatusSwaper(true);
 
+  const users = [
+    {
+      id: 0,
+    },
+  ];
+
   const columns = [
     { name: "NAME", uid: "name" },
     { name: "EMAIL", uid: "email" },
@@ -15,16 +21,6 @@ export default function MainTable({ setModalForEditUserStatusSwaper }) {
     { name: "ROLE", uid: "role" },
     { name: "AGE", uid: "age" },
     { name: "ACTIONS", uid: "actions" },
-  ];
-  const users = [
-    {
-      id: 0,
-      name: "Tony Reichert",
-      email: "tony.reichert@example.com",
-      phone: "09306817596",
-      role: "admin",
-      age: "29",
-    },
   ];
 
   const renderCell = (user, columnKey) => {
@@ -36,32 +32,38 @@ export default function MainTable({ setModalForEditUserStatusSwaper }) {
         return <Text>{cellValue}</Text>;
 
       case "role":
-        return user.role === "admin" ? <Text>Admin</Text> : <Text>Normal</Text>;
+        if (user.role === "Admin") {
+          return <Text>Admin</Text>;
+        } else if (user.role === "Normal User") {
+          return <Text>Normal User</Text>;
+        }
 
       case "age":
         return <Text>{cellValue}</Text>;
 
       case "actions":
-        return (
-          <Row>
-            <Col
-              css={{
-                d: "flex",
-                justifyContent: "flex-end",
-              }}>
-              <IconButton onClick={openModalHandler}>
-                <EditIcon size={20} fill='#17C964' />
-              </IconButton>
-            </Col>
-            <Col
-              css={{
-                d: "flex",
-                justifyContent: "center",
-              }}>
-              <CustomPopOver />
-            </Col>
-          </Row>
-        );
+        if (users.id >= 0) {
+          return (
+            <Row>
+              <Col
+                css={{
+                  d: "flex",
+                  justifyContent: "flex-end",
+                }}>
+                <IconButton onClick={openModalHandler}>
+                  <EditIcon size={20} fill='#17C964' />
+                </IconButton>
+              </Col>
+              <Col
+                css={{
+                  d: "flex",
+                  justifyContent: "center",
+                }}>
+                <CustomPopOver />
+              </Col>
+            </Row>
+          );
+        }
       default:
         return cellValue;
     }

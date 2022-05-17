@@ -1,4 +1,6 @@
+import * as React from "react";
 import { Button } from "@nextui-org/react";
+
 export default function ModalForAddUserFooter({
   setModalForAddUserStatusSwaper2x,
   setNewUserSwaper,
@@ -10,8 +12,9 @@ export default function ModalForAddUserFooter({
     setModalForAddUserStatusSwaper2x(false);
     setNewUserSwaper({});
   };
+
   const addNewUserHndler = () => {
-    if (Object.keys(newUserSwaper).length !== 0) {
+    if (Object.keys(newUserSwaper).length > 1) {
       setUsersSwaper2x([...usersSwaper2x, newUserSwaper]);
       modalCloseHandler();
     }
