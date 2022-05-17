@@ -13,6 +13,7 @@ export default function MainComponent() {
     React.useState(false);
 
   const [users, setUsers] = React.useState([]);
+  const [id, setId] = React.useState(0);
 
   return (
     <Container>
@@ -33,12 +34,16 @@ export default function MainComponent() {
       <ModalForEditUser
         ModalForEditUserStatusSwaper={ModalForEditUserStatus}
         setModalForEditUserStatusSwaper={setModalForEditUserStatus}
+        usersSwaper={users}
+        setUsersSwaper={setUsers}
+        idSwaper={id}
       />
 
       {/* Main Table */}
       <MainTable
         setModalForEditUserStatusSwaper={setModalForEditUserStatus}
         usersSwaper={users}
+        setIdSwaper={setId}
       />
     </Container>
   );

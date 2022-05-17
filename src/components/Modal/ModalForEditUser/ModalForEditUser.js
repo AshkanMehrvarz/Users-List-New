@@ -7,6 +7,9 @@ import ModalForEditUserFooter from "./ModalForEditUserFooter";
 export default function ModalForEditUser({
   ModalForEditUserStatusSwaper,
   setModalForEditUserStatusSwaper,
+  usersSwaper,
+  setUsersSwaper,
+  idSwaper,
 }) {
   const closeModalHandler = () => setModalForEditUserStatusSwaper(false);
 
@@ -21,7 +24,11 @@ export default function ModalForEditUser({
         <ModalForEditUserHeader />
       </Modal.Header>
       <Modal.Body>
-        <ModalForEditUserBody />
+        <ModalForEditUserBody
+          usersSwaper2x={usersSwaper}
+          setUsersSwaper2x={setUsersSwaper}
+          idSwaper2x={idSwaper}
+        />
       </Modal.Body>
       <Modal.Footer>
         <ModalForEditUserFooter

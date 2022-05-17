@@ -7,8 +7,12 @@ import CustomPopOver from "../popover/CustomPopOver";
 export default function MainTable({
   setModalForEditUserStatusSwaper,
   usersSwaper,
+  setIdSwaper,
 }) {
-  const openModalHandler = () => setModalForEditUserStatusSwaper(true);
+  // const openModalHandler = (user) => {
+  //   setModalForEditUserStatusSwaper(true);
+  //   console.log(user.id);
+  // };
 
   const columns = [
     { name: "NAME", uid: "name" },
@@ -45,7 +49,11 @@ export default function MainTable({
                 d: "flex",
                 justifyContent: "flex-end",
               }}>
-              <IconButton onClick={openModalHandler}>
+              <IconButton
+                onClick={() => {
+                  setModalForEditUserStatusSwaper(true);
+                  setIdSwaper(user.id);
+                }}>
                 <EditIcon size={20} fill='#17C964' />
               </IconButton>
             </Col>
