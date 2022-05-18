@@ -7,6 +7,8 @@ import CustomPopOver from "../popover/CustomPopOver";
 export default function MainTable({
   setModalForEditUserStatusSwaper,
   usersSwaper,
+  setUsersSwaper,
+  idSwaper,
   setIdSwaper,
 }) {
   const columns = [
@@ -57,7 +59,11 @@ export default function MainTable({
                 d: "flex",
                 justifyContent: "center",
               }}>
-              <CustomPopOver />
+              <CustomPopOver
+                usersSwaper2x={usersSwaper}
+                setUsersSwaper2x={setUsersSwaper}
+                userFromTable={user}
+              />
             </Col>
           </Row>
         );
@@ -67,7 +73,7 @@ export default function MainTable({
   };
 
   return (
-    <>
+    <div style={{ marginBottom: 50 }}>
       <Table
         shadow
         bordered
@@ -109,6 +115,6 @@ export default function MainTable({
           )}
         </Table.Body>
       </Table>
-    </>
+    </div>
   );
 }
