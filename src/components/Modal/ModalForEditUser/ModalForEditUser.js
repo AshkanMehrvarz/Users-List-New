@@ -11,15 +11,16 @@ export default function ModalForEditUser({
   setUsersSwaper,
   idSwaper,
 }) {
-  const closeModalHandler = () => setModalForEditUserStatusSwaper(false);
+  const closeModalHandler = () => {
+    setModalForEditUserStatusSwaper(false);
+    setTemp(usersSwaper);
+  };
 
   const [temp, setTemp] = React.useState(usersSwaper);
 
   React.useEffect(() => {
     setTemp(usersSwaper);
   }, [usersSwaper]);
-
-  console.log(temp);
 
   return (
     <Modal
@@ -42,8 +43,11 @@ export default function ModalForEditUser({
       <Modal.Footer>
         <ModalForEditUserFooter
           setModalForEditUserStatusSwaper2x={setModalForEditUserStatusSwaper}
-          // tempSwaper={temp}
+          tempSwaper={temp}
+          setTempSwaper={setTemp}
           setUsersSwaper2x={setUsersSwaper}
+          usersSwaper2x={usersSwaper}
+          idSwaper2x={idSwaper}
         />
       </Modal.Footer>
     </Modal>

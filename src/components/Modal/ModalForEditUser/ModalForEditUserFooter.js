@@ -4,11 +4,15 @@ export default function ModalForEditUserFooter({
   setModalForEditUserStatusSwaper2x,
   tempSwaper,
   setUsersSwaper2x,
+  usersSwaper2x,
+  setTempSwaper,
+  idSwaper2x,
 }) {
   const closeModalHandler = () => setModalForEditUserStatusSwaper2x(false);
 
   const userUpdateHandler = () => {
-    // setUsersSwaper2x(tempSwaper);
+    let temp = (usersSwaper2x[idSwaper2x] = tempSwaper);
+    setTempSwaper(temp);
     closeModalHandler();
   };
 
