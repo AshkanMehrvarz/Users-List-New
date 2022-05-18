@@ -1,16 +1,21 @@
 import * as React from "react";
-import { Table, Row, Col, Text } from "@nextui-org/react";
+import { Table, Row, Col, Text, Popover } from "@nextui-org/react";
 import { IconButton } from "../Icons/IconButton";
 import { EditIcon } from "../Icons/EditIcon";
-import CustomPopOver from "../popover/CustomPopOver";
+import { DeleteIcon } from "../Icons/DeleteIcon";
 
 export default function MainTable({
   setModalForEditUserStatusSwaper,
   usersSwaper,
-  setUsersSwaper,
-  idSwaper,
   setIdSwaper,
+  setUsersSwaper,
 }) {
+  const deleteUserHandler = (id) => {
+    let temp = [...usersSwaper];
+    temp.splice(id, 1);
+    setUsersSwaper([...temp]);
+  };
+
   const columns = [
     { name: "NAME", uid: "name" },
     { name: "EMAIL", uid: "email" },
@@ -59,11 +64,12 @@ export default function MainTable({
                 d: "flex",
                 justifyContent: "center",
               }}>
-              <CustomPopOver
-                usersSwaper2x={usersSwaper}
-                setUsersSwaper2x={setUsersSwaper}
-                userFromTable={user}
-              />
+              <IconButton
+                onClick={() => {
+                  deleteUserHandler(user.id);
+                }}>
+                <DeleteIcon size={20} fill='#FF0080' />
+              </IconButton>
             </Col>
           </Row>
         );
