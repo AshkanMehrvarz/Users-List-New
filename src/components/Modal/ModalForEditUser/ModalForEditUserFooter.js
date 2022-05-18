@@ -8,7 +8,7 @@ export default function ModalForEditUserFooter({
   const closeModalHandler = () => setModalForEditUserStatusSwaper2x(false);
 
   const userUpdateHandler = () => {
-    setUsersSwaper2x(tempSwaper);
+    // setUsersSwaper2x(tempSwaper);
     closeModalHandler();
   };
 

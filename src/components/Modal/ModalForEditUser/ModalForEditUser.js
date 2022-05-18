@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button, Text } from "@nextui-org/react";
+import { Modal } from "@nextui-org/react";
 import ModalForEditUserBody from "./ModalForEditUserBody";
 import ModalForEditUserHeader from "./ModalForEditUserHead";
 import ModalForEditUserFooter from "./ModalForEditUserFooter";
@@ -13,7 +13,13 @@ export default function ModalForEditUser({
 }) {
   const closeModalHandler = () => setModalForEditUserStatusSwaper(false);
 
-  let temp = [...usersSwaper];
+  const [temp, setTemp] = React.useState(usersSwaper);
+
+  React.useEffect(() => {
+    setTemp(usersSwaper);
+  }, [usersSwaper]);
+
+  console.log(temp);
 
   return (
     <Modal
@@ -30,12 +36,13 @@ export default function ModalForEditUser({
           usersSwaper2x={usersSwaper}
           idSwaper2x={idSwaper}
           tempSwaper={temp}
+          setTempSwaper={setTemp}
         />
       </Modal.Body>
       <Modal.Footer>
         <ModalForEditUserFooter
           setModalForEditUserStatusSwaper2x={setModalForEditUserStatusSwaper}
-          tempSwaper={temp}
+          // tempSwaper={temp}
           setUsersSwaper2x={setUsersSwaper}
         />
       </Modal.Footer>

@@ -14,7 +14,9 @@ export default function MainComponent() {
 
   const [users, setUsers] = React.useState([]);
   const [id, setId] = React.useState(0);
-  console.log(users);
+
+  // console.log(users);
+
   return (
     <Container>
       {/* Add New User Button */}

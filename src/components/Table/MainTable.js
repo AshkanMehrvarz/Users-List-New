@@ -9,11 +9,6 @@ export default function MainTable({
   usersSwaper,
   setIdSwaper,
 }) {
-  // const openModalHandler = (user) => {
-  //   setModalForEditUserStatusSwaper(true);
-  //   console.log(user.id);
-  // };
-
   const columns = [
     { name: "NAME", uid: "name" },
     { name: "EMAIL", uid: "email" },
