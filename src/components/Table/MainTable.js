@@ -5,9 +5,10 @@ import { EditIcon } from "../Icons/EditIcon";
 import CustomPopOver from "../popover/CustomPopOver";
 
 export default function MainTable({
-  setModalForEditUserStatusSwaper,
-  usersSwaper,
-  setIdSwaper,
+    setModalForEditUserStatusSwaper,
+    usersSwaper,
+    setUsersSwaper,
+    setIdSwaper,
 }) {
   const columns = [
     { name: "NAME", uid: "name" },
@@ -19,6 +20,7 @@ export default function MainTable({
   ];
 
   const renderCell = (user, columnKey) => {
+      console.log(user)
     const cellValue = user[columnKey];
     switch (columnKey) {
       case "name":
@@ -57,7 +59,7 @@ export default function MainTable({
                 d: "flex",
                 justifyContent: "center",
               }}>
-              <CustomPopOver />
+              <CustomPopOver usersSwaper={usersSwaper} setUsersSwaper={setUsersSwaper} user={user} />
             </Col>
           </Row>
         );

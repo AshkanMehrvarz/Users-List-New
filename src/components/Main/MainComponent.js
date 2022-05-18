@@ -45,6 +45,7 @@ export default function MainComponent() {
       <MainTable
         setModalForEditUserStatusSwaper={setModalForEditUserStatus}
         usersSwaper={users}
+        setUsersSwaper = {setUsers}
         setIdSwaper={setId}
       />
     </Container>
