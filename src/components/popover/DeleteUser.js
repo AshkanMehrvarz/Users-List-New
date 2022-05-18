@@ -1,8 +1,21 @@
 import React from "react";
 import { Text, Button, Grid, Row } from "@nextui-org/react";
 
-export const DeleteUser = ({ setPopoverStatusSwaper }) => {
+export const DeleteUser = ({
+  setPopoverStatusSwaper,
+  setUsersSwaper3x,
+  usersSwaper3x,
+  userFromTableSwaper,
+}) => {
   const cancelButtonHandler = () => setPopoverStatusSwaper(false);
+
+  const deleteUserHandler = () => {
+    let newUsers = usersSwaper3x;
+    console.log(userFromTableSwaper.id);
+    setUsersSwaper3x([...newUsers]);
+    cancelButtonHandler();
+  };
+
   return (
     <Grid.Container
       css={{ borderRadius: "14px", padding: "0.75rem", maxWidth: "330px" }}>
@@ -22,7 +35,7 @@ export const DeleteUser = ({ setPopoverStatusSwaper }) => {
           </Button>
         </Grid>
         <Grid>
-          <Button size='sm' shadow color='error'>
+          <Button size='sm' shadow color='error' onClick={deleteUserHandler}>
             Delete
           </Button>
         </Grid>
