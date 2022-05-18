@@ -4,12 +4,16 @@ import MainTable from "../Table/MainTable";
 import AddNewUserButton from "./AddNewUserButton";
 import ModalForAddUser from "../Modal/ModalForAddUser/ModalForAddUser";
 import ModalForEditUser from "../Modal/ModalForEditUser/ModalForEditUser";
+import ModalForDeleteUser from "../Modal/ModalForDeleteUser/ModalForDeleteUser";
 
 export default function MainComponent() {
   const [modalForAddUserStatus, setModalForAddUserStatus] =
     React.useState(false);
 
   const [ModalForEditUserStatus, setModalForEditUserStatus] =
+    React.useState(false);
+
+  const [ModalForDeleteUserStatus, setModalForDeleteUserStatus] =
     React.useState(false);
 
   const [users, setUsers] = React.useState([]);
@@ -19,12 +23,10 @@ export default function MainComponent() {
 
   return (
     <Container>
-      {/* Add New User Button */}
       <AddNewUserButton
         setModalForAddUserStatusSwaper={setModalForAddUserStatus}
       />
 
-      {/* Modal For Add User */}
       <ModalForAddUser
         modalForAddUserStatusSwaper={modalForAddUserStatus}
         setModalForAddUserStatusSwaper={setModalForAddUserStatus}
@@ -32,7 +34,6 @@ export default function MainComponent() {
         setUsersSwaper={setUsers}
       />
 
-      {/* Modal For Edit User */}
       <ModalForEditUser
         ModalForEditUserStatusSwaper={ModalForEditUserStatus}
         setModalForEditUserStatusSwaper={setModalForEditUserStatus}
@@ -41,13 +42,20 @@ export default function MainComponent() {
         idSwaper={id}
       />
 
-      {/* Main Table */}
+      <ModalForDeleteUser
+        ModalForDeleteUserStatusSwaper={ModalForDeleteUserStatus}
+        setModalForDeleteUserStatusSwaper={setModalForDeleteUserStatus}
+        usersSwaper={users}
+        setUsersSwaper={setUsers}
+        idSwaper={id}
+      />
+
       <MainTable
         setModalForEditUserStatusSwaper={setModalForEditUserStatus}
         usersSwaper={users}
         setUsersSwaper={setUsers}
-        idSwaper={id}
         setIdSwaper={setId}
+        setModalForDeleteUserStatusSwaper={setModalForDeleteUserStatus}
       />
     </Container>
   );

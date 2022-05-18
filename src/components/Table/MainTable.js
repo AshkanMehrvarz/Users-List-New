@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Table, Row, Col, Text, Popover } from "@nextui-org/react";
+import { Table, Row, Col, Text } from "@nextui-org/react";
 import { IconButton } from "../Icons/IconButton";
 import { EditIcon } from "../Icons/EditIcon";
 import { DeleteIcon } from "../Icons/DeleteIcon";
@@ -9,13 +9,8 @@ export default function MainTable({
   usersSwaper,
   setIdSwaper,
   setUsersSwaper,
+  setModalForDeleteUserStatusSwaper,
 }) {
-  const deleteUserHandler = (id) => {
-    let temp = [...usersSwaper];
-    temp.splice(id, 1);
-    setUsersSwaper([...temp]);
-  };
-
   const columns = [
     { name: "NAME", uid: "name" },
     { name: "EMAIL", uid: "email" },
@@ -56,7 +51,7 @@ export default function MainTable({
                   setModalForEditUserStatusSwaper(true);
                   setIdSwaper(user.id);
                 }}>
-                <EditIcon size={20} fill='#17C964' />
+                <EditIcon size={22} fill='#17C964' />
               </IconButton>
             </Col>
             <Col
@@ -66,9 +61,10 @@ export default function MainTable({
               }}>
               <IconButton
                 onClick={() => {
-                  deleteUserHandler(user.id);
+                  setModalForDeleteUserStatusSwaper(true);
+                  setIdSwaper(user.id);
                 }}>
-                <DeleteIcon size={20} fill='#FF0080' />
+                <DeleteIcon size={22} fill='#FF0080' />
               </IconButton>
             </Col>
           </Row>
