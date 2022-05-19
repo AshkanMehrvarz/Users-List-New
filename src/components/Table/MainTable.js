@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Table, Row, Col, Text } from "@nextui-org/react";
+import { Table, Row, Col, Text, Tooltip } from "@nextui-org/react";
 import { IconButton } from "../Icons/IconButton";
 import { EditIcon } from "../Icons/EditIcon";
 import { DeleteIcon } from "../Icons/DeleteIcon";
@@ -8,7 +8,6 @@ export default function MainTable({
   setModalForEditUserStatusSwaper,
   usersSwaper,
   setIdSwaper,
-  setUsersSwaper,
   setModalForDeleteUserStatusSwaper,
 }) {
   const columns = [
@@ -51,7 +50,13 @@ export default function MainTable({
                   setModalForEditUserStatusSwaper(true);
                   setIdSwaper(user.id);
                 }}>
-                <EditIcon size={22} fill='#17C964' />
+                <Tooltip
+                  css={{ mt: -20 }}
+                  content={"Edit User"}
+                  rounded
+                  color='success'>
+                  <EditIcon size={22} fill='#17C964' />
+                </Tooltip>
               </IconButton>
             </Col>
             <Col
@@ -64,7 +69,13 @@ export default function MainTable({
                   setModalForDeleteUserStatusSwaper(true);
                   setIdSwaper(user.id);
                 }}>
-                <DeleteIcon size={22} fill='#FF0080' />
+                <Tooltip
+                  css={{ mt: -20 }}
+                  content={"Delete User"}
+                  rounded
+                  color='error'>
+                  <DeleteIcon size={22} fill='#FF0080' />
+                </Tooltip>
               </IconButton>
             </Col>
           </Row>

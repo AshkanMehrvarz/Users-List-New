@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Card, Container, Row, Spacer, Switch, Text } from "@nextui-org/react";
+import { Card, Container, Row, Switch, Text } from "@nextui-org/react";
 import { MoonIcon } from "../Icons/MoonIcon";
 import { SunIcon } from "../Icons/SunIcon";
 
